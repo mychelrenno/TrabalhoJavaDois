@@ -1,13 +1,20 @@
 package br.com.trabalho;
 
 import java.sql.Connection;
+import java.sql.DriverManager;
 import java.sql.PreparedStatement;
+import java.sql.SQLException;
 
 public class SqlGenExtends extends SqlGen{
 
 	@Override
 	protected String getCreateTable(Connection con, Object obj) {
-		// TODO Auto-generated method stub
+		String url = "jdbc:postgresql://localhost/ecommercedb?user=postgres&password=xxxx";
+		try {
+			con = DriverManager.getConnection(url);
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
 		return null;
 	}
 
