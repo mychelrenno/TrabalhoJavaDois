@@ -2,11 +2,11 @@ package br.com.trabalho;
 
 public class Main {
 
-	public void apagarTabela(){
+	public static void apagarTabela(){
 		
 	}
 
-	public void criarTabela(){
+	public static void criarTabela(){
 		
 	}
 
@@ -43,6 +43,8 @@ public class Main {
 	}
 	
 	public static void main (String []args){
+		
+		criarTabela();
 		
 	}
 }
