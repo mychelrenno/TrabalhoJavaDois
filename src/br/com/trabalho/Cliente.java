@@ -1,11 +1,24 @@
 package br.com.trabalho;
 
+import br.com.anotacoes.Column;
+import br.com.anotacoes.Table;
+
+@Table("TB_CLIENTE")
 public class Cliente {
 
+	@Column(nome="ID")
 	private int id;
+	
+	@Column(nome="NOME")
 	private String nome;
+	
+	@Column(nome="ENDERECO")
 	private String endereco;
+	
+	@Column(nome="TELEFONE")
 	private String telefone;
+	
+	@Column(nome="ESTADOCIVIL")
 	private EstadoCivil estadoCivil;
 	
 	public int getId() {
