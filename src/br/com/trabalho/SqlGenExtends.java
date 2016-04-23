@@ -9,13 +9,11 @@ public class SqlGenExtends extends SqlGen{
 
 	@Override
 	protected String getCreateTable(Connection con, Object obj) {
-		String url = "jdbc:postgresql://localhost/ecommercedb?user=postgres&password=xxxx";
-		try {
-			con = DriverManager.getConnection(url);
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
-		return null;
+		String sql = "CREATE TABLE tb_cliente(cli_id int, cli_nome varchar(255), "
+												+ "cli_endereco varchar(255), "
+												+ "cli_telefone varchar(255), "
+												+ "cli_estadocivil varchar(255))";
+		return sql;
 	}
 
 	@Override
@@ -53,5 +51,4 @@ public class SqlGenExtends extends SqlGen{
 		// TODO Auto-generated method stub
 		return null;
 	}
-
 }
