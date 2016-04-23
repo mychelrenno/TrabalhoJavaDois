@@ -2,26 +2,30 @@ package br.com.trabalho;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Statement;
 
 public class Main {
 
 	public static void apagarTabela(){
-		
+		String url = "jdbc:postgresql://localhost/ecommercedb?user=postgres&password=xxxx";
+		String sql = "DROP TABLE tb_cliente";
+		try {
+			Connection con = DriverManager.getConnection(url);
+			con.prepareStatement(sql).execute();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
 	}
 
-	public void criarTabela(){
-//		String url = "jdbc:postgresql://localhost/ecommercedb?user=postgres&password=xxxx";
-//		String sql = "CREATE TABLE tb_cliente(cli_id int, cli_nome varchar(255), cli_endereco varchar(255), cli_telefone varchar(255), cli_estadocivil varchar(255))";
-//		try {
-//			Connection con = DriverManager.getConnection(url);
-//			con.prepareStatement(sql).execute();
-//		} catch (SQLException e) {
-//			e.printStackTrace();
-//		}
+	public static void criarTabela(){
+		String url = "jdbc:postgresql://localhost/ecommercedb?user=postgres&password=xxxx";
+		String sql = "CREATE TABLE tb_cliente(cli_id int, cli_nome varchar(255), cli_endereco varchar(255), cli_telefone varchar(255), cli_estadocivil varchar(255))";
+		try {
+			Connection con = DriverManager.getConnection(url);
+			con.prepareStatement(sql).execute();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
 	}
 
 	public void inserir (Object um){
@@ -80,5 +84,10 @@ public class Main {
 		clienteTres.setTelefone("33333333");
 		clienteTres.setEstadoCivil(clienteTres.getEstadoCivil().VIUVO);
 		clienteTres.setEndereco("Rua das Tres Nº878");
+		
+		Dao<Object, Object> dao = new DaoImplements();
+		
+		apagarTabela();
+		criarTabela();
 	}
 }
