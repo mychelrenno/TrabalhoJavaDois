@@ -6,30 +6,16 @@ import java.sql.SQLException;
 
 public class Main {
 
-	public static void apagarTabela(){
-		String url = "jdbc:postgresql://localhost/ecommercedb?user=postgres&password=xxxx";
-		String sql = "DROP TABLE tb_cliente";
-		try {
-			Connection con = DriverManager.getConnection(url);
-			con.prepareStatement(sql).execute();
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
+	public static void apagarTabela(Object obj, DaoImplements daoImpl){
+		daoImpl.excluirTabela(obj);
 	}
 
-	public static void criarTabela(){
-		String url = "jdbc:postgresql://localhost/ecommercedb?user=postgres&password=xxxx";
-		String sql = "CREATE TABLE tb_cliente(cli_id int, cli_nome varchar(255), cli_endereco varchar(255), cli_telefone varchar(255), cli_estadocivil varchar(255))";
-		try {
-			Connection con = DriverManager.getConnection(url);
-			con.prepareStatement(sql).execute();
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
+	public static void criarTabela(Object obj, DaoImplements daoImpl){
+		daoImpl.criarTabela(obj);
 	}
 
-	public void inserir (Object um){
-		
+	public static void inserir (Cliente clie, DaoImplements daoImpl){
+		daoImpl.salvar(clie);
 	}
 
 	public void inserirDois (Object dois){
@@ -85,9 +71,16 @@ public class Main {
 		clienteTres.setEstadoCivil(clienteTres.getEstadoCivil().VIUVO);
 		clienteTres.setEndereco("Rua das Tres Nº878");
 		
-		Dao<Object, Object> dao = new DaoImplements();
+		DaoImplements daoImpl = new DaoImplements();
 		
-		apagarTabela();
-		criarTabela();
+//		apagarTabela(clienteUm, daoImpl);
+		
+		criarTabela(clienteUm, daoImpl);
+		
+		inserir(clienteUm, daoImpl);
+		
+		inserir(clienteDois, daoImpl);
+		
+		inserir(clienteTres, daoImpl);
 	}
 }
