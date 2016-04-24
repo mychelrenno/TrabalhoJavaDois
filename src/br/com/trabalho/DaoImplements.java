@@ -52,19 +52,23 @@ class DaoImplements implements Dao<Object, Object> {
 
 	@Override
 	public void atualizar(Object t) {
-		// TODO Auto-generated method stub
-		
+		Connection con = conexao();
+		SqlGenExtends sqlGenEx = new SqlGenExtends();
+		sqlGenEx.getSqlUpdateById(con, t);
 	}
 
 	@Override
 	public void excluir(Object k) {
-		// TODO Auto-generated method stub
-		
+		Connection con = conexao();
+		SqlGenExtends sqlGenEx = new SqlGenExtends();
+		sqlGenEx.getSqlDeleteById(con, k);
 	}
 
 	@Override
 	public List<Object> listarTodos() {
-		// TODO Auto-generated method stub
+		Connection con = conexao();
+		SqlGenExtends sqlGenEx = new SqlGenExtends();
+		sqlGenEx.getSqlSelectAll(con);
 		return null;
 	}
 }

@@ -114,8 +114,9 @@ public class SqlGenExtends extends SqlGen{
 	}
 
 	@Override
-	protected PreparedStatement getSqlSelectAll(Connection con, Object obj) {
-		// TODO Auto-generated method stub
+	protected PreparedStatement getSqlSelectAll(Connection con) {
+//		SELECT column_name,column_name
+//		FROM table_name;
 		return null;
 	}
 
@@ -159,13 +160,49 @@ public class SqlGenExtends extends SqlGen{
 
 	@Override
 	protected PreparedStatement getSqlUpdateById(Connection con, Object obj) {
-		// TODO Auto-generated method stub
+		String sql = "UPDATE ";
+		Tabela anotacaoTabela = obj.getClass().getAnnotation(Tabela.class);
+		sql += anotacaoTabela.value().toString()+" SET ";
+		
+		Cliente clie = (Cliente) obj;
+		
+//		UPDATE table_name
+//		SET column1=value1,column2=value2,...
+//				WHERE some_column=some_value;
+		
+		
+		sql += "ID = "+clie.getId()+", "
+				+"NOME = '"+clie.getNome()+"', "
+				+"ENDERECO = '"+clie.getEndereco()+"', "
+				+"TELEFONE = '"+clie.getTelefone()+"', "
+				+"ESTADOCIVIL = '"+clie.getEstadoCivil()+"' WHERE ID = "+clie.getId();
+		
+		try {
+			con.prepareStatement(sql).execute();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
 		return null;
 	}
 
 	@Override
 	protected PreparedStatement getSqlDeleteById(Connection con, Object obj) {
-		// TODO Auto-generated method stub
+		String sql = "DELETE FROM ";
+		Tabela anotacaoTabela = obj.getClass().getAnnotation(Tabela.class);
+		Cliente clie = (Cliente) obj;
+		sql += anotacaoTabela.value().toString()+" WHERE ID = "+clie.getId();
+		
+		System.out.println(sql);
+//		DELETE FROM table_name
+//		WHERE some_column=some_value;
+		
+		try {
+			con.prepareStatement(sql).execute();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
 		return null;
 	}
 }

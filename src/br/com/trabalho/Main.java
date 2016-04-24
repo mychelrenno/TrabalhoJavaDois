@@ -27,15 +27,15 @@ public class Main {
 	}
 
 	public static void alterar (Object um, DaoImplements daoImpl){
-		
+		daoImpl.atualizar(um);
 	}
 
 	public static void excluir (Object dois, DaoImplements daoImpl){
-		
+		daoImpl.excluir(dois);
 	}
 
-	public static void listarTodos(Object um, Object dois, Object treis, DaoImplements daoImpl){
-		
+	public static void listarTodos(DaoImplements daoImpl){
+		daoImpl.listarTodos();
 	}
 	
 	public static void main (String []args){
@@ -75,12 +75,12 @@ public class Main {
 //		
 //		inserir(clienteTres, daoImpl);
 		
-		buscar(clienteUm, daoImpl);// objeto 1
+//		buscar(clienteUm, daoImpl);// objeto 1
 
-		alterar(clienteUm, daoImpl);// objeto 1
+//		alterar(clienteUm, daoImpl);// objeto 1
 
-		excluir(clienteDois, daoImpl);// objeto 2
+//		excluir(clienteDois, daoImpl);// objeto 2
 
-		listarTodos(clienteUm, clienteDois, clienteTres, daoImpl);// todos
+		listarTodos(daoImpl);// todos
 	}
 }
