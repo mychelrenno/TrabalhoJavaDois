@@ -2,7 +2,6 @@ package br.com.trabalho;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
-import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.util.List;
 
@@ -45,7 +44,9 @@ class DaoImplements implements Dao<Object, Object> {
 
 	@Override
 	public Object buscar(Object k) {
-		// TODO Auto-generated method stub
+		Connection con = conexao();
+		SqlGenExtends sqlGenEx = new SqlGenExtends();
+		sqlGenEx.getSqlSelectById(con, k);
 		return null;
 	}
 

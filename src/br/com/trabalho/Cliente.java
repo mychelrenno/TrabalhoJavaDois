@@ -51,5 +51,8 @@ public class Cliente {
 	public void setEstadoCivil(EstadoCivil estadoCivil) {
 		this.estadoCivil = estadoCivil;
 	}
-	
+	@Override
+    public String toString() {
+        return "Entidade{" + "id=" + id + ", nome=" + nome + '}';
+    }
 }

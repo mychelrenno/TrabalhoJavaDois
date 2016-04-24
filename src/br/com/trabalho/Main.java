@@ -1,9 +1,5 @@
 package br.com.trabalho;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.SQLException;
-
 public class Main {
 
 	public static void apagarTabela(Object obj, DaoImplements daoImpl){
@@ -18,31 +14,27 @@ public class Main {
 		daoImpl.salvar(clie);
 	}
 
-	public void inserirDois (Object dois){
+	public void inserirDois (Object dois, DaoImplements daoImpl){
+		daoImpl.salvar(dois);
+	}
+
+	public void inserirTres (Object tres, DaoImplements daoImpl){
+		daoImpl.salvar(tres);
+	}
+
+	public static void buscar (Object um, DaoImplements daoImpl){
+		daoImpl.buscar(um);
+	}
+
+	public static void alterar (Object um, DaoImplements daoImpl){
 		
 	}
 
-	public void inserirTres (Object tres){
+	public static void excluir (Object dois, DaoImplements daoImpl){
 		
 	}
 
-	public void listarTodos (){
-		
-	}
-
-	public void buscar (Object um){
-		
-	}
-
-	public void alterar (Object um){
-		
-	}
-
-	public void excluir (Object dois){
-		
-	}
-
-	public void listarTodosDois(){
+	public static void listarTodos(Object um, Object dois, Object treis, DaoImplements daoImpl){
 		
 	}
 	
@@ -74,13 +66,21 @@ public class Main {
 		DaoImplements daoImpl = new DaoImplements();
 		
 //		apagarTabela(clienteUm, daoImpl);
+//		
+//		criarTabela(clienteUm, daoImpl);
+//		
+//		inserir(clienteUm, daoImpl);
+//		
+//		inserir(clienteDois, daoImpl);
+//		
+//		inserir(clienteTres, daoImpl);
 		
-		criarTabela(clienteUm, daoImpl);
-		
-		inserir(clienteUm, daoImpl);
-		
-		inserir(clienteDois, daoImpl);
-		
-		inserir(clienteTres, daoImpl);
+		buscar(clienteUm, daoImpl);// objeto 1
+
+		alterar(clienteUm, daoImpl);// objeto 1
+
+		excluir(clienteDois, daoImpl);// objeto 2
+
+		listarTodos(clienteUm, clienteDois, clienteTres, daoImpl);// todos
 	}
 }
