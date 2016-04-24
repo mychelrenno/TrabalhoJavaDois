@@ -65,10 +65,10 @@ class DaoImplements implements Dao<Object, Object> {
 	}
 
 	@Override
-	public List<Object> listarTodos() {
+	public List<Object> listarTodos(Object t) {
 		Connection con = conexao();
 		SqlGenExtends sqlGenEx = new SqlGenExtends();
-		sqlGenEx.getSqlSelectAll(con);
+		sqlGenEx.getSqlSelectAll(con, t);
 		return null;
 	}
 }

@@ -19,5 +19,5 @@ public interface Dao<T, K> {
 	
 	public void excluir(K k);
 	
-	public List<T> listarTodos();
+	public List<T> listarTodos(T t);
 }

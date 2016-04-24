@@ -114,9 +114,15 @@ public class SqlGenExtends extends SqlGen{
 	}
 
 	@Override
-	protected PreparedStatement getSqlSelectAll(Connection con) {
-//		SELECT column_name,column_name
-//		FROM table_name;
+	protected PreparedStatement getSqlSelectAll(Connection con, Object obj) {
+		Tabela anotacaoTabela = obj.getClass().getAnnotation(Tabela.class);
+		String sql = "SELECT * FROM "+anotacaoTabela.value().toString();
+		System.out.println(sql);
+		try {
+			con.prepareStatement(sql).execute();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
 		return null;
 	}
 

@@ -34,8 +34,8 @@ public class Main {
 		daoImpl.excluir(dois);
 	}
 
-	public static void listarTodos(DaoImplements daoImpl){
-		daoImpl.listarTodos();
+	public static void listarTodos(DaoImplements daoImpl, Object um){
+		daoImpl.listarTodos(um);
 	}
 	
 	public static void main (String []args){
@@ -81,6 +81,6 @@ public class Main {
 
 //		excluir(clienteDois, daoImpl);// objeto 2
 
-		listarTodos(daoImpl);// todos
+		listarTodos(daoImpl, clienteUm);// todos
 	}
 }
