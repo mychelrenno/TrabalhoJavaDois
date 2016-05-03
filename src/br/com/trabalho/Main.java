@@ -5,35 +5,35 @@ public class Main {
 	public static void apagarTabela(Object obj, DaoImplements daoImpl){
 		daoImpl.excluirTabela(obj);
 	}
-
+	
 	public static void criarTabela(Object obj, DaoImplements daoImpl){
 		daoImpl.criarTabela(obj);
 	}
-
+	
 	public static void inserir (Cliente clie, DaoImplements daoImpl){
 		daoImpl.salvar(clie);
 	}
-
+	
 	public void inserirDois (Object dois, DaoImplements daoImpl){
 		daoImpl.salvar(dois);
 	}
-
+	
 	public void inserirTres (Object tres, DaoImplements daoImpl){
 		daoImpl.salvar(tres);
 	}
-
+	
 	public static void buscar (Object um, DaoImplements daoImpl){
 		daoImpl.buscar(um);
 	}
-
+	
 	public static void alterar (Object um, DaoImplements daoImpl){
 		daoImpl.atualizar(um);
 	}
-
+	
 	public static void excluir (Object dois, DaoImplements daoImpl){
 		daoImpl.excluir(dois);
 	}
-
+	
 	public static void listarTodos(DaoImplements daoImpl, Object um){
 		daoImpl.listarTodos(um);
 	}
@@ -66,21 +66,21 @@ public class Main {
 		DaoImplements daoImpl = new DaoImplements();
 		
 //		apagarTabela(clienteUm, daoImpl);
-//		
+		
 //		criarTabela(clienteUm, daoImpl);
-//		
-//		inserir(clienteUm, daoImpl);
-//		
+		
+		inserir(clienteUm, daoImpl);
+		
 //		inserir(clienteDois, daoImpl);
-//		
+		
 //		inserir(clienteTres, daoImpl);
 		
-//		buscar(clienteUm, daoImpl);// objeto 1
-
-//		alterar(clienteUm, daoImpl);// objeto 1
-
-//		excluir(clienteDois, daoImpl);// objeto 2
-
-		listarTodos(daoImpl, clienteUm);// todos
+//		buscar(clienteUm, daoImpl);
+		
+//		alterar(clienteUm, daoImpl);
+		
+//		excluir(clienteDois, daoImpl);
+		
+//		listarTodos(daoImpl, clienteUm);
 	}
 }
